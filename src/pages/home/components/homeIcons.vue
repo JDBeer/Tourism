@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  @import '~styles/varibles.styl'
+  @import '~styles/mixmin.styl'
   .wrap
     padding-bottom: .3rem
     background-color: white
@@ -59,6 +61,5 @@ export default {
       p
         margin-top .2rem
         color: #333
-        white-space: nowrap
-        text-overflow: ellipsis
+        ellipsis()
 </style>
