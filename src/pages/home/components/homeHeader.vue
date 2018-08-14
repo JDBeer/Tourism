@@ -7,7 +7,7 @@
       <span class="iconfont icon-sousuo search-icon"></span>
       <input class="input" type="text" placeholder="请输入城市、景点、游玩主题"/>
     </div>
-    <div class="head-right">{{city}}<span class="iconfont icon-jiantou arrow"></span></div>
+    <div class="head-right" @click="pushToCity">{{city}}<span class="iconfont icon-jiantou arrow"></span></div>
   </div>
 </template>
 
@@ -16,7 +16,12 @@ export default {
   name: 'homeHeader',
   props: [
     'city'
-  ]
+  ],
+  methods: {
+    pushToCity () {
+      this.$router.push({path: './city'})
+    }
+  }
 }
 </script>
 
