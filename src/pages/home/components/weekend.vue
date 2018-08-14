@@ -2,10 +2,10 @@
   <div>
     <div class="weekend-title">周末去哪儿</div>
     <ul class="container">
-      <li v-for="item in weekendList" :key="item.id">
-        <img :src="item.imageUrl"/>
+      <li v-for="item in list" :key="item.id">
+        <img :src="item.imgUrl"/>
         <p class="title">{{item.title}}</p>
-        <p class="desprition">{{item.desprition}}</p>
+        <p class="desprition">{{item.desc}}</p>
       </li>
     </ul>
   </div>
@@ -14,25 +14,10 @@
 
 <script>
 export default {
-  name: 'weekend.vue',
-  data () {
-    return {
-      weekendList: []
-    }
-  },
-  methods: {
-    getList () {
-      let arr = []
-      for (let i = 0; i < 3; i++) {
-        var obj = { id: i, imageUrl: 'http://img.ybl-group.com/ybl_1531735466013', title: '大洋圣地海洋公园', desprition: '与动物嬉戏，共享和谐人生' }
-        arr.push(obj)
-      }
-      this.weekendList = arr
-    }
-  },
-  created () {
-    this.getList()
-  }
+  name: 'weekend',
+  props: [
+    'list'
+  ]
 }
 </script>
 

@@ -7,13 +7,16 @@
       <span class="iconfont icon-sousuo search-icon"></span>
       <input class="input" type="text" placeholder="请输入城市、景点、游玩主题"/>
     </div>
-    <div class="head-right">城市<span class="iconfont icon-jiantou arrow"></span></div>
+    <div class="head-right">{{city}}<span class="iconfont icon-jiantou arrow"></span></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'homeHeader'
+  name: 'homeHeader',
+  props: [
+    'city'
+  ]
 }
 </script>
 

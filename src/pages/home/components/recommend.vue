@@ -2,12 +2,12 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul class="container">
-      <li v-for="item in recommendList" :key="item.id">
-        <img :src="item.imageUrl"/>
+      <li v-for="item in list" :key="item.id">
+        <img :src="item.imgUrl"/>
         <div class="right-wrap">
           <p class="title">{{item.title}}</p>
-          <p class="desprition">{{item.desprition}}</p>
-          <p class="price">{{item.pirce}}<span class="price-inset">起</span></p>
+          <p class="desprition">{{item.desc}}</p>
+          <p class="price">{{item.pirce||'97'}}<span class="price-inset">起</span></p>
         </div>
       </li>
     </ul>
@@ -20,30 +20,29 @@ export default {
   name: 'recommend',
   data () {
     return {
-      checkBoxShow: true,
-      recommendList: []
+      checkBoxShow: true
     }
   },
   methods: {
-    getList () {
-      const arr = []
-      for (let i = 0; i < 3; i++) {
-        var obj = { id: i, imageUrl: 'https://img.ybl-group.com/ybl_1524491013746', title: '大洋圣地海洋公园', desprition: '与动物嬉戏，共享和谐人生', pirce: '57' }
-        arr.push(obj)
-      }
-      this.recommendList = arr
-    },
-    checkTap () {
-      for (let i = 0; i < 3; i++) {
-        var obj = { id: i, imageUrl: 'https://img.ybl-group.com/ybl_1524491013746', title: '大洋圣地海洋公园', desprition: '与动物嬉戏，共享和谐人生', pirce: '57' }
-        this.recommendList.push(obj)
-      }
+    checkTap: function () {
+      // let plusArr = [];
+      // for (let i = this.list.length; i < (this.list.length + 3); i++) {
+      //   var obj = {
+      //     id: i,
+      //     imgUrl: 'https://img.ybl-group.com/ybl_1524491013746',
+      //     title: '大洋圣地海洋公园',
+      //     desc: '与动物嬉戏，共享和谐人生',
+      //     pirce: '57'
+      //   }
+      //   plusArr.push(obj)
+      // }
+      // this.list.push(plusArr)
       this.checkBoxShow = false
     }
   },
-  created () {
-    this.getList()
-  }
+  props: [
+    'list'
+  ]
 }
 </script>
 
