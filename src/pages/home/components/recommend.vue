@@ -11,6 +11,7 @@
         </div>
       </li>
     </ul>
+    <p v-if="checkBoxShow" class="check-all" @click="checkTap()">查看所有商品</p>
   </div>
 </template>
 
@@ -19,26 +20,35 @@ export default {
   name: 'recommend',
   data () {
     return {
+      checkBoxShow: true,
       recommendList: []
     }
   },
   methods: {
     getList () {
-      const arr = [];
+      const arr = []
       for (let i = 0; i < 3; i++) {
-        var obj = { id: i, imageUrl: 'https://img.ybl-group.com/ybl_1524491013746', title: '大洋圣地海洋公园', desprition: '与动物嬉戏，共享和谐人生', pirce: '57' };
-        arr.push(obj);
+        var obj = { id: i, imageUrl: 'https://img.ybl-group.com/ybl_1524491013746', title: '大洋圣地海洋公园', desprition: '与动物嬉戏，共享和谐人生', pirce: '57' }
+        arr.push(obj)
       }
-      this.recommendList = arr;
+      this.recommendList = arr
+    },
+    checkTap () {
+      for (let i = 0; i < 3; i++) {
+        var obj = { id: i, imageUrl: 'https://img.ybl-group.com/ybl_1524491013746', title: '大洋圣地海洋公园', desprition: '与动物嬉戏，共享和谐人生', pirce: '57' }
+        this.recommendList.push(obj)
+      }
+      this.checkBoxShow = false
     }
   },
   created () {
-    this.getList();
+    this.getList()
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+  @import '~styles/varibles.styl'
   .recommend-title
     padding: .3rem
     color: #333
@@ -49,6 +59,7 @@ export default {
     li
       position: relative
       padding: .2rem
+      border-bottom: .01rem solid #D8D8D8
       img
         width: 1.7rem
         height: 1.7rem
@@ -74,5 +85,14 @@ export default {
       content: '¥'
       font-size: .3rem
       margin-right: .06rem
+  .check-all
+    position: relative
+    top: .06rem
+    height: 1rem
+    line-height 1rem
+    vertical-align: middle
+    text-align: center
+    color: $bgColor
+    font-size: .32rem
 
 </style>
